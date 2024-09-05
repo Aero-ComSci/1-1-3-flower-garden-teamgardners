@@ -1,11 +1,6 @@
 import turtle
 turtle.speed(2000)
 
-
-def tokenize_input(user_input):
-    tokens = user_input.lower().split()
-    return tokens
-
 def rose():
     def draw_flower():
         turtle.penup()
@@ -92,8 +87,7 @@ def rose():
         turtle.right(90)
         turtle.circle(200, 60)
 
-        turtle.done()
-
+        
 # Call the function to draw the flower
         draw_flower()
 
@@ -217,28 +211,19 @@ def daisy():
 # Run the function to draw the daisy flower
     draw_daisy()
 
+rose()
+
+userinput = input("Write a Paragraph:")
+flower = userinput.split(" ")
+print(flower)
+for i in flower: 
+    if i == "rose":
+        rose()
+    elif i == "lily":
+        print("lily")
+    else:
+        print("no flowers")
 
 
-def check_for_flowers(tokens):
-    flower_actions = {
-        "rose": rose,
-        "poppy": poppy,
-        "lilies": lily,
-    }
-
-    for flower in flower_actions:
-        if flower in tokens:
-            flower_actions[flower]()
-            return
-
-    print("No recognized flowers found in your request.")
-
-# Main function to get user input, tokenize it, and check for specific flowers
-def main():
-    user_input = input("What flowers do you want? ")
-    tokens = tokenize_input(user_input)
-    check_for_flowers(tokens)
-    turtle.done()
-
-if __name__ == "__main__":
-    main()
+wn = turtle.Screen()
+wn.mainloop()
